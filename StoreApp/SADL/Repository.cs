@@ -4,8 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using SADL.Entities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+
 using SAModels;
 
 namespace SADL
@@ -13,8 +12,8 @@ namespace SADL
 
     public class Repository : IRepository
     {
-        private SADL.Entities.FirstDatabaseContext _context;
-        public Repository(DLEntities.FirstDatabaseContext p_context)
+        private Entities.GundContext _context;
+        public Repository(Entities.GundContext p_context)
         {
             _context = p_context;
         }
@@ -22,9 +21,9 @@ namespace SADL
 
 
         //Called within the BL from _rep, a repository field variable, takes in customer object
-        public Customer AddCustomer(Customer p_customer)
+        public SAModels.Customer AddCustomer(SAModels.Customer p_customer)
         {
-            _context.Customers.Add(new SADL.Entities.Customer
+            _context.Customers.Add(new Entities.Customer
             {
                 Id = p_customer.Id,
                 CustomerName = p_customer.Name,
@@ -35,11 +34,11 @@ namespace SADL
             return p_customer;
         }
 
-        public List<Customer> GetAllCustomers()
+        public List<SAModels.Customer> GetAllCustomers()
         {
             return _context.Customers.Select(
                 cust =>
-                    new Customer()
+                    new SAModels.Customer()
                     {
                         Id = cust.Id,
                         Name = cust.CustomerName,
@@ -49,7 +48,7 @@ namespace SADL
             ).ToList();
         }
 
-        public Customer GetCustomer(Customer p_customer)
+        public SAModels.Customer GetCustomer(SAModels.Customer p_customer)
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,7 @@ namespace SAUI
     {
         public string _location { get; set; }
         public static StoreFrontMenu newMenu = new StoreFrontMenu();
-        public void storeLocation(StoreFront p_storeFront)
+        public void storeLocation(SAModels.StoreFront p_storeFront)
         {
             newMenu._location = p_storeFront.Name;
         }

@@ -32,7 +32,12 @@ create table Orders
     lineitems varchar(40),
     location varchar(40),
     totalprice decimal
-        primary key (Order_Id)
+        primary key (Order_Id),
+        --Customer one to many relationship with Orders:--
+	constraint foreign_key_Customer foreign key(Order_Id) references Customer(Customer_Id),
+
+--StoreFront one to many relationship with Orders:--
+	constraint foreign_key_StoreFront foreign key(Order_Id) references StoreFront(Store_Id),	
 );
 
 --Will create table called LineItems
@@ -59,6 +64,24 @@ drop table Orders;
 drop table LineItems;
 drop table Products;
 
+--StoreFront many to many relationship with LineItems:--
+				--Join table--
+	create table StoreFront_LineItems(
+		LineItem_Store_Id int references StoreFront(Store_Id),
+		LineItem_Id int references LineItems(LineItem_Id)
+	); 
+	--LineItems many to many relationship with Products:--
+			--Join table--
+	create table LineItem_Products(
+		LineItem_Product_Id int references Products(Product_Id),
+		Product_Id int references LineItems(LineItem_Id)
+	);
+	--LineItems many to many relationship with Orders:--
+			--Join table--
+	create table LineItem_Orders(
+		LineItem_Id int references Orders(Order_Id),
+		Order_Id int references LineItems(LineItem_Id)
+	);
 
 
 

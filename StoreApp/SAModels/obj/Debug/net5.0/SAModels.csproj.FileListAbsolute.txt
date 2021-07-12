@@ -1,0 +1,5 @@
+C:\Users\jgund\Documents\GitHub\JefferyGunderson-po\StoreApp\SAModels\obj\Debug\net5.0\SAModels.csproj.AssemblyReference.cache
+C:\Users\jgund\Documents\GitHub\JefferyGunderson-po\StoreApp\SAModels\obj\Debug\net5.0\SAModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jgund\Documents\GitHub\JefferyGunderson-po\StoreApp\SAModels\obj\Debug\net5.0\SAModels.AssemblyInfoInputs.cache
+C:\Users\jgund\Documents\GitHub\JefferyGunderson-po\StoreApp\SAModels\obj\Debug\net5.0\SAModels.AssemblyInfo.cs
+C:\Users\jgund\Documents\GitHub\JefferyGunderson-po\StoreApp\SAModels\obj\Debug\net5.0\SAModels.csproj.CoreCompileInputs.cache

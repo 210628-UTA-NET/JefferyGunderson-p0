@@ -31,7 +31,7 @@ Create table Customer
 -- Will create table called Orders
 create table Orders
 (
-    Order_Id,
+    Order_Id int identity,
     lineitems varchar(40),
     location varchar(40),
     totalprice decimal

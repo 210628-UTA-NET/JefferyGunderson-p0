@@ -1,133 +1,67 @@
 using System;
-using System.Text.RegularExpressions;
-
-
-namespace SAModels
+using System.Collections.Generic; //This is for collections. 
+using System.Text.RegularExpressions; //Need this system for Regex. 
+namespace Models
 {
     public class Customer
-    {
+    { 
+        private string _firstName; //Private string for firstName 
+        private string _lastName; //Private string for lastName
+        private string address; //Private string for address
+        private string email; //Private string for email
 
+        public Customer(){}
+        public int Customer_Id { get; set;}
+        public int Id { get; set; }
 
-
-        public int Customer_Id
-        {
+        public string FirstName {
             get
-            {
-                return Customer_Id;
-            }
-
+        {
+            return _firstName;
         }
-        public string Email
-        {
-            get
-            {
-                return Email;
-            }
-        }
-
-        public string FirstName
-        {
-            get
-            {
-                return FirstName;
-            }
             set
-            {
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                {
-                    throw new Exception("FirstName only holds letters.");
-                }
-                FirstName = value;
-            }
-        }
-        public string AddressLine1
         {
-            get
+            if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
             {
-                return AddressLine1;
-
+                throw new Exception("FirstName only holds letters.");
             }
-
-
+            _firstName = value;
         }
-
         public string LastName
         {
             get
             {
-                return LastName;
+                return _lastName;
             }
-
             set
             {
                 if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
                 {
-                    throw new Exception("FirstName only holds letters.");
+                    throw new Exception("LastName only holds letters.");
                 }
-                LastName = value;
+                _lastName = value;
             }
-
         }
-        public string AddressLine2
+
+        public string Address { get; set;}
+        public string Email { get; set;}
+   
+
+        public Customer(int p_Customer_Id, string p_firstName, string p_lastName, string p_Address, string p_Email, List<Orders> p_ListOfOrder)
+
+        //You can override the default string functions, allowing to output the object parameters or receive and namespace.class COnstructor" 
         {
-            get
-            {
-                return AddressLine1;
-
-            }
-
-
-        }
-        public string City
+            Customer_Id = p_Customer_Id;
+            FirstName=p_firstName;
+            LastName = p_lastName;
+            Address = p_Address;
+            Email = p_Email;
+           
+        } 
+         public override string ToString() 
         {
-            get
-            {
-                return City;
-            }
-
-            set
-            {
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                {
-                    throw new Exception("FirstName only holds letters.");
-                }
-                City = value;
-            }
-
+            //return FirstName + " " + LastName;
+            return $"Customer ID: {Customer_Id}\n FirstName: {_firstName}\n LastName: {_lastName}\n Address: {address}\nEmail: {email}\nListofOrders: {ListofOrders}";
         }
-        public string State
-        {
-            get
-            {
-                return State;
-            }
-
-            set
-            {
-                if (!Regex.IsMatch(value, @"^[A-Za-z .]+$"))
-                {
-                    throw new Exception("FirstName only holds letters.");
-                }
-                State = value;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //overrides default string function allowing you to output object parameters:: otherwise you receive "namespace.class"
-
-        public override string ToString() => $" Customer_Id: {Customer_Id}\n FirstName: {FirstName}\n LastName: {LastName}\n AddressLine1: {AddressLine1}\n AddressLine2: {AddressLine2}\n City: {City} \n State: {State}\n Email: {Email}";
-
     }
 }

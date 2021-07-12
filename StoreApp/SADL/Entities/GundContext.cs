@@ -16,14 +16,14 @@ namespace SADL.Entities
     
     
 
-    public virtual DbSet<Customer> Customers { get; set; }
-    public virtual DbSet<StoreFront> StoreFronts { get; set; }
+    public virtual DbSet<SAModels.Customer> Customers { get; set; }
+    public virtual DbSet<SAModels.StoreFront> StoreFronts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
-        modelBuilder.Entity<Customer>(entity =>
+        modelBuilder.Entity<SAModels.Customer>(entity =>
         {
 
             entity.ToTable("Customer");

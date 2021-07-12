@@ -60,7 +60,6 @@ create table Products
 
 drop table Storefront;
 drop table Customer;
-drop table Orders;
 drop table LineItems;
 drop table Products;
 

@@ -1,9 +1,7 @@
 using System.IO;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 using SADL.Entities;
-using SADL;
 namespace SAUI
 {
     //This class abstracts what would be in the main and exports functionality to a "Factory".cs
